@@ -12,9 +12,9 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
  
-@Configuration
-@EnableTransactionManagement
-public class HibernateConfiguration {
+//@Configuration
+//@EnableTransactionManagement
+public class CustomHibernateConfiguration {
     @Value("${db.driver}")
     private String DRIVER;
  
