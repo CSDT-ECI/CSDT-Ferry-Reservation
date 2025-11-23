@@ -1,6 +1,5 @@
 package com.jtspringproject.JtSpringProject.services;
 
-import com.jtspringproject.JtSpringProject.models.*;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ public class userService {
 	private userDao userDao;
 	
 	public List<User> getUsers(){
-		return this.userDao.getAllUser();
+		return this.userDao.getAllUsers();
 	}
 	
 	public User addUser(User user) {

@@ -2,9 +2,6 @@ package com.jtspringproject.JtSpringProject.dao;
 
 import java.util.List;
 
-import javax.persistence.NoResultException;
-import javax.sound.midi.Soundbank;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -24,9 +21,9 @@ public class userDao {
         this.sessionFactory = sf;
     }
    @Transactional
-    public List<User> getAllUser() {
+    public List<User> getAllUsers() {
         Session session = this.sessionFactory.getCurrentSession();
-		List<User>  userList = session.createQuery("from CUSTOMER").list();
+		List<User> userList = session.createQuery("from CUSTOMER").list();
         return userList;
     }
     
@@ -55,8 +52,7 @@ public class userDao {
 			}
 		}catch(Exception e){
 			System.out.println(e.getMessage());
-			User user = new User();
-			return user;
+			return new User();
 		}
     	
     }
