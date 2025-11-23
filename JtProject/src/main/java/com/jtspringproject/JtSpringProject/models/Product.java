@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 
 @Entity(name="PRODUCT")
 public class Product {
+
 	@Id
 	@Column(name = "product_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -32,6 +33,7 @@ public class Product {
 	private int weight;
 	
 	private String description;
+
 
 	public int getId() {
 		return id;
@@ -56,7 +58,6 @@ public class Product {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 
 	public Category getCategory() {
 		return category;

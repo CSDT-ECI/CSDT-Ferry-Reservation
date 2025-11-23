@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jtspringproject.JtSpringProject.models.Category;
 import com.jtspringproject.JtSpringProject.models.Product;
 
 @Repository
@@ -41,7 +40,7 @@ public class productDao {
 		return product;
 	}
 	@Transactional
-	public Boolean deletProduct(int id) {
+	public Boolean deleteProduct(int id) {
 
 		Session session = this.sessionFactory.getCurrentSession();
 		Object persistanceInstance = session.load(Product.class, id);

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.jtspringproject.JtSpringProject.dao.categoryDao;
 import com.jtspringproject.JtSpringProject.models.Category;
 
-import net.bytebuddy.dynamic.DynamicType.Builder.InnerTypeDefinition;
-
 @Service
 public class categoryService {
 	@Autowired
@@ -24,7 +22,7 @@ public class categoryService {
 	}
 	
 	public Boolean deleteCategory(int id) {
-		return this.categoryDao.deletCategory(id);
+		return this.categoryDao.deleteCategory(id);
 	}
 	
 	public Category updateCategory(int id,String name) {

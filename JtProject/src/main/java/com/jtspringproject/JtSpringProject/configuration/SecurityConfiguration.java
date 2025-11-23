@@ -1,5 +1,6 @@
 package com.jtspringproject.JtSpringProject.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -16,12 +17,9 @@ import com.jtspringproject.JtSpringProject.services.userService;
 
 @Configuration
 public class SecurityConfiguration {
-	
-	userService UserService;
 
-	public SecurityConfiguration(userService UserService) {
-		this.UserService = UserService;
-	}
+	@Autowired
+	userService UserService;
 
 	@Configuration
 	@Order(1)

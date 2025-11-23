@@ -35,7 +35,6 @@ public class Cart {
         this.id = id;
     }
 
-
     public User getCustomer() {
         return customer;
     }
