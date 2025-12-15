@@ -1,39 +1,37 @@
 package com.jtspringproject.JtSpringProject.models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
-
-@Entity(name="CART_PRODUCT")
+@Entity
+@Table(name = "CART_PRODUCT")
 public class CartProduct {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @EmbeddedId
+    private CartProductId id;
 
     @ManyToOne
-    @JoinColumn(name="cart_id")
+    @MapsId("cartId")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @ManyToOne
-    @JoinTable(name="product_id")
+    @MapsId("productId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
+    public CartProduct() {}
 
-    public CartProduct() {
-        product = null;
-    }
     public CartProduct(Cart cart, Product product) {
-        this.cart=cart;
+        this.cart = cart;
         this.product = product;
+        this.id = new CartProductId(cart.getId(), product.getId());
     }
 
-    public int getId() {
+    public CartProductId getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(CartProductId id) {
         this.id = id;
     }
 
@@ -44,6 +42,7 @@ public class CartProduct {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+
     public Product getProduct() {
         return product;
     }

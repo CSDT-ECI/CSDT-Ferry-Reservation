@@ -1,6 +1,4 @@
-## Old Version
-- https://github.com/jaygajera17/E-commerce-project-springBoot/tree/main
-- issue: everytime connection open close for access database 
+<a href="https://trendshift.io/repositories/151" target="_blank"><img src="https://trendshift.io/api/badge/repositories/151" alt="jaygajera17%2FE-commerce-project-springBoot | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 ## New Version ( what's new)
 - Hibernate configuration added( database and tables automatically create when run the project)
@@ -108,6 +106,7 @@ The following guides illustrate how to use some features concretely:
 
 
 ## Link
+
 - 𝗬𝗼𝘂𝘁𝘂𝗯𝗲 𝗽𝗿𝗼𝗷𝗲𝗰𝘁 𝘃𝗶𝗱𝗲𝗼 𝗪𝗼𝗿𝗸𝗶𝗻𝗴 𝗗𝗲𝗺𝗼 + 𝘀𝘁𝗲𝗽 𝗯𝘆 𝘀𝘁𝗲𝗽 𝗲𝘅𝗲𝗰𝘂𝘁𝗶𝗼𝗻 𝗹𝗶𝗻𝗸  ( old version )::---  [  click here  ](https://youtu.be/c6WWdINWSlI) [![youtube][youtube-shield]][youtube-url]
 
 [youtube-shield]:https://img.shields.io/youtube/views/c6WWdINWSlI?style=social
