@@ -2,11 +2,14 @@ package com.jtspringproject.JtSpringProject.services;
 
 import java.util.List;
 
+import com.jtspringproject.JtSpringProject.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jtspringproject.JtSpringProject.dao.productDao;
 import com.jtspringproject.JtSpringProject.models.Product;
+
+import javax.transaction.Transactional;
 
 @Service
 public class productService {
@@ -25,8 +28,8 @@ public class productService {
 		return this.productDao.getProduct(id);
 	}
 
-	public Product updateProduct(int id,Product product){
-		product.setId(id);
+	@Transactional
+	public Product updateProduct(int id, Product product){
 		return this.productDao.updateProduct(product);
 	}
 	public boolean deleteProduct(int id) {
