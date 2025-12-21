@@ -64,8 +64,8 @@
 					<div class="form-group">
 					
 						<label for="category">Select Category</label> 
-						<select class="form-control border border-success" name="categoryid" readonly>
-							<option selected>Select a Category</option>
+						<select class="form-control border border-success" name="categoryid" required>
+							<option value="" disabled selected>Select a Category</option>
                             							<c:forEach var="category" items="${categories}">
                             								<option value="${category.id}">${category.name}</option>
                             							</c:forEach>
