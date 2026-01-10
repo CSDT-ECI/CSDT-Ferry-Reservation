@@ -70,6 +70,14 @@
 					    ${customer.address}
 						
 				    </td>
+					<td>
+					  <a href="/admin/customers/delete?id=${customer.id}"
+					     class="btn btn-danger btn-sm"
+					     onclick="return confirm('Are you sure you want to delete this customer?');">
+					     Delete
+					  </a>
+					</td>
+
 					</tr>
                 </c:forEach>
 

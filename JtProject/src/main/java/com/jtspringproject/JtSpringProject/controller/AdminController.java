@@ -249,5 +249,12 @@ public class AdminController {
 		}
 		return "redirect:index";
 	}
+	
+	@GetMapping("customers/delete")
+	public String deleteCustomer(@RequestParam("id") int id) {
+	    userService.deleteUser(id);
+	    return "redirect:/admin/customers";
+	}
+
 
 }
