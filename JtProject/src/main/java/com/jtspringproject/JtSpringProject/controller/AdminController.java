@@ -250,4 +250,30 @@ public class AdminController {
 		return "redirect:index";
 	}
 
+	/* Called by Admin from DisplayCustomer page to deactivate or soft delete the user*/
+	@GetMapping(value = "/deleteUser/{userId}")
+	public ModelAndView deletUser(@PathVariable int userId){
+		try{
+			User updatedUser = this.userService.deleteUser(userId);
+			System.out.println(updatedUser);
+
+		} catch (Exception e) {
+			System.out.println("Exception:"+e);
+		}
+		return getCustomerDetail();
+	}
+
+	/* Called by Admin from DisplayCustomer page to activate the user after deactivating*/
+	@GetMapping(value = "/activateUser/{userId}")
+	public ModelAndView activateUser(@PathVariable int userId){
+		try{
+			User updatedUser = this.userService.activateUser(userId);
+			System.out.println(updatedUser);
+
+		} catch (Exception e) {
+			System.out.println("Exception:"+e);
+		}
+		return getCustomerDetail();
+	}
+
 }

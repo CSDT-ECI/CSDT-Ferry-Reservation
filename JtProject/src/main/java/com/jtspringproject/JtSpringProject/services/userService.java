@@ -38,5 +38,11 @@ public class userService {
 
 	public User getUserByUsername(String username) {
 	        return userDao.getUserByUsername(username);
-	    }
+	}
+
+	public User deleteUser(int userID) { return this.userDao.deleteUser(userID) ; }
+
+	public User activateUser(int userID) { return this.userDao.activateUser(userID) ; }
+
+
 }
