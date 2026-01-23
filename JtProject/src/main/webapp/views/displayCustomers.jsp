@@ -70,6 +70,15 @@
 					    ${customer.address}
 						
 				    </td>
+				    <td>
+				        <c:if test="${customer.isActive eq false}">
+				            <a href="/admin/activateUser/${customer.id}" class="card-link">Activate</a>
+                        </c:if>
+                        <c:if test="${customer.isActive eq true}">
+                            <a href="/admin/deleteUser/${customer.id}" class="card-link">De-Activate</a>
+                        </c:if>
+                    </td>
+
 					</tr>
                 </c:forEach>
 

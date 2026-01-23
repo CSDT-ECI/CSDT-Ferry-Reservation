@@ -3,6 +3,7 @@ package com.jtspringproject.JtSpringProject.dao;
 import java.util.List;
 
 import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 import javax.sound.midi.Soundbank;
 
 import org.hibernate.Session;
@@ -70,7 +71,7 @@ public class userDao {
 
 	@Transactional
 	public User getUserByUsername(String username) {
-	        Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where username = :username", User.class);
+	        Query<User> query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username AND isActive = 1", User.class);
 	        query.setParameter("username", username);
 	        
 	        try {
@@ -80,4 +81,27 @@ public class userDao {
 	            return null; 
 	        }
     	}
+
+	/* Set isActive to False which is meant triggers soft delete*/
+	@Transactional
+	public User deleteUser(int userID){
+		TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where id = :userID", User.class);
+		query.setParameter("userID", userID);
+		User user = query.getSingleResult();
+		user.setIsActive(false);
+		this.sessionFactory.getCurrentSession().save(user);
+		return user;
+	}
+
+	/* Set isActive to True when User wants to access the website again after deactivating the account*/
+	@Transactional
+	public User activateUser(int userID){
+		TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where id = :userID", User.class);
+		query.setParameter("userID", userID);
+		User user = query.getSingleResult();
+		user.setIsActive(true);
+		this.sessionFactory.getCurrentSession().save(user);
+		return user;
+	}
+
 }

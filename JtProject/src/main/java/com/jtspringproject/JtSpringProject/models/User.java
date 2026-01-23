@@ -28,6 +28,8 @@ public class User {
 	private String role;
 	
 	private String address;
+
+	private Boolean isActive;
 	
 	
 	public int getId() {
@@ -77,7 +79,9 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	 
+
+	public Boolean getIsActive() { return isActive; }
+
+	public void setIsActive(Boolean isActive) { this.isActive = isActive;}
 
 }
