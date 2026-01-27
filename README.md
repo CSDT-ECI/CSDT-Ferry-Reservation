@@ -1,6 +1,6 @@
 <a href="https://trendshift.io/repositories/151" target="_blank"><img src="https://trendshift.io/api/badge/repositories/151" alt="jaygajera17%2FE-commerce-project-springBoot | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-## New Version ( what's new)
+## New Version (What's new)
 - Hibernate configuration added( database and tables automatically create when run the project)
 - Service classes provide reusable services throughout project
 - dao classes interact with database 
