@@ -26,16 +26,16 @@
 - Motivo de seleccion: codigo heredado con malas practicas, sin pruebas unitarias y sin CI.
 
 ## Instrucciones de la actividad
-- Documentar el progreso del curso en [Debt Breakers_CSDT-2026.md](Debt%20Breakers_CSDT-2026.md).
+- Documentar el progreso del curso en [Debt Breakers_CSDT-2026.md](../Debt%20Breakers_CSDT-2026.md).
 - Usar este documento para registrar olores de codigo, deuda tecnica, candidatos de refactorizacion y avances.
 - Usar el laboratorio de Markdown si es necesario: https://classroom.github.com/a/XgNKf2U3
 - Trabajar en una rama hija de main y enviar pull request para revision.
 
 ## Requisitos para compilar y ejecutar
-- Java 11+ (el proyecto declara 11 en [JtProject/pom.xml](JtProject/pom.xml)).
+- Java 11+ (el proyecto declara 11 en [JtProject/pom.xml](../JtProject/pom.xml)).
 - Maven (o Maven Wrapper si se configura `.mvn`).
 - MySQL 8.x en ejecucion.
-- Configurar credenciales en [JtProject/src/main/resources/application.properties](JtProject/src/main/resources/application.properties).
+- Configurar credenciales en [JtProject/src/main/resources/application.properties](../JtProject/src/main/resources/application.properties).
 
 ### Pasos rapidos
 1) Configurar DB:
@@ -104,13 +104,13 @@ mvn spring-boot:run
 
 ## Correcciones para compilar y ejecutar
 - Se agrego `entityManagerFactory` para que Spring Data JPA inicialice repositorios.
-	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java)
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java)
 - Se ajusto el encoder de passwords a texto plano para usar el seed inicial.
-	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java)
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java)
 - Se corrigio HQL de `User` a `CUSTOMER` en `getUserByUsername`.
-	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java)
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java)
 - Se actualizo la clave de BD en `application.properties` para MySQL local.
-	- Archivo: [JtProject/src/main/resources/application.properties](JtProject/src/main/resources/application.properties)
+	- Archivo: [JtProject/src/main/resources/application.properties](../JtProject/src/main/resources/application.properties)
 - Se insertaron usuarios seed manualmente en MySQL (admin/lisa).
 	- Script ejecutado:
 ```sql
@@ -122,19 +122,19 @@ INSERT INTO CUSTOMER(address, email, password, role, username) VALUES
 
 ## Evidencia con fragmentos
 
-- JDBC directo y credenciales hardcodeadas en controlador: [AdminController profileDisplay](JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/AdminController.java#L194-L233)
+- JDBC directo y credenciales hardcodeadas en controlador: [AdminController profileDisplay](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/AdminController.java#L194-L233)
 ```java
 Class.forName("com.mysql.jdbc.Driver");
 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommjava","root","");
 PreparedStatement stmt = con.prepareStatement("select * from users where username = ?"+";");
 ```
 
-- Exposicion de password en la vista (modelo): [UserController profileDisplay](JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/UserController.java#L117-L128)
+- Exposicion de password en la vista (modelo): [UserController profileDisplay](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/UserController.java#L117-L128)
 ```java
 model.addAttribute("password", user.getPassword());
 ```
 
-- Logica incompleta en update de producto: [AdminController updateProduct](JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/AdminController.java#L157-L163)
+- Logica incompleta en update de producto: [AdminController updateProduct](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/AdminController.java#L157-L163)
 ```java
 @RequestMapping(value = "products/update/{id}",method=RequestMethod.POST)
 public String updateProduct(@PathVariable("id") int id ,@RequestParam("name") String name,@RequestParam("categoryid") int categoryId ,@RequestParam("price") int price,@RequestParam("weight") int weight, @RequestParam("quantity")int quantity,@RequestParam("description") String description,@RequestParam("productImage") String productImage)
@@ -144,7 +144,7 @@ public String updateProduct(@PathVariable("id") int id ,@RequestParam("name") St
 }
 ```
 
-- Comparacion de password en DAO y retorno de objeto vacio: [userDao getUser](JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java#L49-L60)
+- Comparacion de password en DAO y retorno de objeto vacio: [userDao getUser](../JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java#L49-L60)
 ```java
 if(password.equals(user.getPassword())) {
 	return user;
@@ -153,7 +153,7 @@ if(password.equals(user.getPassword())) {
 }
 ```
 
-- Configuracion de DB con root y password vacio: [application.properties](JtProject/src/main/resources/application.properties#L28-L32)
+- Configuracion de DB con root y password vacio: [application.properties](../JtProject/src/main/resources/application.properties#L28-L32)
 ```properties
 db.url= jdbc:mysql://localhost:3306/ecommjava?createDatabaseIfNotExist=true
 db.username= root

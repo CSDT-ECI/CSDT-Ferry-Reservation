@@ -6,8 +6,8 @@
 - Julian Santiago Cardenas
 
 ## Indice general
-- Contexto original: [README.md](README.md)
-- Laboratorio 1: [Code Smells and Refactoring Lab](Code%20Smells%20and%20Refactoring%20Lab.md)
+- Contexto original: [docs/README.md](docs/README.md)
+- Laboratorio 1: [docs/Code Smells and Refactoring Lab.md](docs/Code%20Smells%20and%20Refactoring%20Lab.md)
 
 ## Repositorios
 - Repositorio original (publico): https://github.com/jaygajera17/E-commerce-project-springBoot
