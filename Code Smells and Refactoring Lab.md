@@ -31,6 +31,39 @@
 - Usar el laboratorio de Markdown si es necesario: https://classroom.github.com/a/XgNKf2U3
 - Trabajar en una rama hija de main y enviar pull request para revision.
 
+## Requisitos para compilar y ejecutar
+- Java 11+ (el proyecto declara 11 en [JtProject/pom.xml](JtProject/pom.xml)).
+- Maven (o Maven Wrapper si se configura `.mvn`).
+- MySQL 8.x en ejecucion.
+- Configurar credenciales en [JtProject/src/main/resources/application.properties](JtProject/src/main/resources/application.properties).
+
+### Pasos rapidos
+1) Configurar DB:
+```properties
+db.url=jdbc:mysql://localhost:3306/ecommjava?createDatabaseIfNotExist=true
+db.username=root
+db.password=TU_PASSWORD
+```
+
+2) Cargar datos base (opcional para login):
+```sql
+USE ecommjava;
+INSERT INTO CUSTOMER(address, email, password, role, username) VALUES
+	('123, Albany Street', 'admin@nyan.cat', '123', 'ROLE_ADMIN', 'admin'),
+	('765, 5th Avenue', 'lisa@gmail.com', '765', 'ROLE_NORMAL', 'lisa');
+```
+
+3) Compilar:
+```bash
+cd JtProject
+mvn clean package
+```
+
+4) Ejecutar:
+```bash
+mvn spring-boot:run
+```
+
 ## Alcance inicial
 - Registrar una primera lista de olores de codigo y deuda tecnica.
 - Definir candidatos de refactorizacion con justificacion.
