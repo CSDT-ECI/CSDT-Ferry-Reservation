@@ -20,3 +20,4 @@
 
 ## Nota
 Este archivo solo funciona como indice general. Cada laboratorio tiene su propio README.
+
