@@ -69,6 +69,24 @@
 - Agregar pruebas de integracion basicas para endpoints criticos.
 - Configurar CI para ejecutar pruebas en cada pull request.
 
+## Correcciones para compilar y ejecutar
+- Se agrego `entityManagerFactory` para que Spring Data JPA inicialice repositorios.
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/HibernateConfiguration.java)
+- Se ajusto el encoder de passwords a texto plano para usar el seed inicial.
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/configuration/SecurityConfiguration.java)
+- Se corrigio HQL de `User` a `CUSTOMER` en `getUserByUsername`.
+	- Archivo: [JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java](JtProject/src/main/java/com/jtspringproject/JtSpringProject/dao/userDao.java)
+- Se actualizo la clave de BD en `application.properties` para MySQL local.
+	- Archivo: [JtProject/src/main/resources/application.properties](JtProject/src/main/resources/application.properties)
+- Se insertaron usuarios seed manualmente en MySQL (admin/lisa).
+	- Script ejecutado:
+```sql
+USE ecommjava;
+INSERT INTO CUSTOMER(address, email, password, role, username) VALUES
+	('123, Albany Street', 'admin@nyan.cat', '123', 'ROLE_ADMIN', 'admin'),
+	('765, 5th Avenue', 'lisa@gmail.com', '765', 'ROLE_NORMAL', 'lisa');
+```
+
 ## Evidencia con fragmentos
 
 - JDBC directo y credenciales hardcodeadas en controlador: [AdminController profileDisplay](JtProject/src/main/java/com/jtspringproject/JtSpringProject/controller/AdminController.java#L194-L233)
@@ -106,6 +124,6 @@ if(password.equals(user.getPassword())) {
 ```properties
 db.url= jdbc:mysql://localhost:3306/ecommjava?createDatabaseIfNotExist=true
 db.username= root
-db.password=
+db.password=root123
 ```
 
