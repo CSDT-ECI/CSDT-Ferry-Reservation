@@ -342,12 +342,31 @@ El workflow configurado ejecuta el análisis en `push` y `pull_request`, usando 
 
 **Valor para el proyecto:** complementa a JaCoCo porque no mide cobertura, sino que inspecciona la calidad y la seguridad del código fuente. En conjunto, ambas herramientas permiten observar dos dimensiones distintas: cuánto código se prueba y qué tan seguro o mantenible es.
 
+### SonarCloud — Integración de calidad continua en CI
+
+Durante esta entrega se integró **SonarCloud** con GitHub Actions mediante el workflow `.github/workflows/sonar.yml`, ejecutado en eventos de `push`, `pull_request` y `workflow_dispatch` sobre las ramas `main` y `lab3`.
+
+La configuración implementada usa Java 11 y ejecuta el análisis desde `JtProject/`, respetando la estructura real del repositorio. Además, se definieron explícitamente los identificadores del proyecto en SonarCloud:
+
+- `sonar.projectName=CSDT-Ferry-Reservation`
+- `sonar.projectKey=CSDT-ECI_CSDT-Ferry-Reservation`
+- `sonar.organization=csdt-eci`
+
+También se incorporó validación de `SONAR_TOKEN` como secreto obligatorio para evitar ejecuciones incompletas del pipeline.
+
+Como decisión técnica temporal para estabilizar el pipeline, la revisión de cobertura en Sonar se dejó desactivada con:
+
+- `-Dsonar.coverage.exclusions=**`
+
+Esta decisión permite mantener el análisis estático activo mientras se incrementa la calidad de pruebas y se prepara una habilitación gradual de cobertura con quality gate.
+
 ### Comparación entre herramientas utilizadas
 
 | Herramienta | Tipo de análisis | Aporte principal en el proyecto |
 |---|---|---|
 | **JaCoCo** | Cobertura dinámica de pruebas | Mide líneas y ramas ejecutadas por la suite de tests |
 | **GitHub CodeQL** | Análisis estático de seguridad y calidad | Detecta vulnerabilidades y patrones de código riesgosos |
+| **SonarCloud** | Análisis estático de calidad mantenible en CI | Centraliza code smells, bugs y debt técnica en cada push/PR |
 | **Mockito** | Aislamiento de dependencias en unit tests | Permite probar servicios y controladores sin depender de la base de datos |
 
 ---
@@ -360,7 +379,7 @@ El workflow configurado ejecuta el análisis en `push` y `pull_request`, usando 
 | **Sin pruebas de integración web** | Alta | Agregar `@WebMvcTest` con MockMvc para los endpoints de registro y login, que involucran Spring Security y redirecciones condicionadas. |
 | **Endpoint `updateProduct` comentado** | Crítica | La lógica del método está vacía en producción. Es el primer candidato para implementar y cubrir con pruebas antes de cualquier despliegue. |
 | **Sin perfil de test aislado** | Media | Crear `application-test.properties` con H2 para que las pruebas nunca dependan de la disponibilidad de MySQL local. |
-| **Sin revisión continua de hallazgos de seguridad** | Media | Revisar periódicamente las alertas de GitHub CodeQL y convertir los hallazgos repetitivos en tareas de refactorización priorizadas dentro del backlog técnico. |
+| **Revisión continua parcial de calidad** | Media | CodeQL y SonarCloud ya están integrados; falta endurecer quality gates y definir SLA de remediación para hallazgos críticos en PR. |
 | **Sin reporte de cobertura automatizado** | Media | Integrar JaCoCo en el pipeline de Jenkins para que cada PR incluya el delta de cobertura. Establecer un umbral mínimo del 70% en capas de servicio. |
 | **Contraseñas en texto plano** | Crítica (seguridad) | Migrar a `BCryptPasswordEncoder` en `SecurityConfiguration`. Requiere actualizar el seed de datos y agregar pruebas de autenticación con Spring Security Test. |
 | **Logging insuficiente** | Media | Agregar `@Slf4j` y registrar operaciones críticas (login fallido, creación de usuario, cambio de contraseña) para cumplir con trazabilidad de seguridad. |
@@ -377,7 +396,7 @@ El análisis del proyecto permitió aplicar de forma práctica los conceptos de 
 
 3. **ISO/IEC 25010 ofrece un vocabulario preciso** para comunicar problemas de calidad más allá de "el código está mal". Hablar de testability, modifiability o confidentiality permite priorizar intervenciones con impacto medible.
 
-4. **Las herramientas automatizadas (JaCoCo y GitHub CodeQL) son multiplicadores de esfuerzo**, no reemplazos del criterio de ingeniería. Su mayor valor está en hacerse parte del pipeline de CI para que la calidad sea una restricción continua, no una revisión puntual.
+4. **Las herramientas automatizadas (JaCoCo, GitHub CodeQL y SonarCloud) son multiplicadores de esfuerzo**, no reemplazos del criterio de ingeniería. Su mayor valor está en hacerse parte del pipeline de CI para que la calidad sea una restricción continua, no una revisión puntual.
 
 5. **La IA como asistente de calidad es una realidad presente.** Su uso en la generación de escenarios de prueba reduce la fricción inicial para equipos que comienzan a introducir testing en proyectos legacy.
 
