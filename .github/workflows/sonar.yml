@@ -42,9 +42,7 @@ jobs:
 
       - name: Build tests
         run: |
-          mvn -B clean test
-          # Coverage disabled:
-          # mvn -B clean test jacoco:report
+          mvn -B clean test jacoco:report
 
       - name: Sonar scan
         shell: bash
@@ -64,9 +62,8 @@ jobs:
             "-Dsonar.projectKey=${PROJECT_KEY}"
             "-Dsonar.projectName=${PROJECT_NAME}"
             "-Dsonar.java.binaries=target/classes"
-            # Coverage disabled:
-            # "-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
-          )
+            "-Dsonar.coverage.exclusions=**"
+            )
 
           if [ "${HOST_URL}" = "https://sonarcloud.io" ]; then
             if [ -z "${SONAR_ORGANIZATION}" ]; then

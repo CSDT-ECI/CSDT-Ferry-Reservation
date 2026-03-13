@@ -25,7 +25,8 @@ public class userDao {
    @Transactional
     public List<User> getAllUser() {
         Session session = this.sessionFactory.getCurrentSession();
-		List<User>  userList = session.createQuery("from CUSTOMER").list();
+		Query<User> query = session.createQuery("from CUSTOMER", User.class);
+		List<User> userList = query.getResultList();
         return userList;
     }
     
@@ -41,11 +42,11 @@ public class userDao {
 //    }
     @Transactional
     public User getUser(String username,String password) {
-	    Query query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY);
+	    Query<User> query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY, User.class);
     	query.setParameter("username",username);
     	
     	try {
-			User user = (User) query.getSingleResult();
+			User user = query.getSingleResult();
 			System.out.println(user.getPassword());
 			if(password.equals(user.getPassword())) {
 				return user;
@@ -62,7 +63,7 @@ public class userDao {
 
 	@Transactional
 	public boolean userExists(String username) {
-		Query query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY);
+		Query<User> query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY, User.class);
 		query.setParameter("username",username);
 		return !query.getResultList().isEmpty();
 	}
