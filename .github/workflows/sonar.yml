@@ -42,8 +42,7 @@ jobs:
 
       - name: Build tests and coverage
         run: |
-          chmod +x mvnw
-          ./mvnw -B clean verify jacoco:report
+          mvn -B clean verify jacoco:report
 
       - name: Sonar scan
         shell: bash
@@ -74,4 +73,4 @@ jobs:
             SONAR_ARGS+=("-Dsonar.organization=${SONAR_ORGANIZATION}")
           fi
 
-          ./mvnw -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar "${SONAR_ARGS[@]}"
+          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar "${SONAR_ARGS[@]}"
