@@ -14,6 +14,8 @@ import com.jtspringproject.JtSpringProject.models.User;
 
 @Repository
 public class userDao {
+	private static final String FIND_USER_BY_USERNAME_QUERY = "from CUSTOMER where username = :username";
+
 	@Autowired
     private SessionFactory sessionFactory;
 	
@@ -39,7 +41,7 @@ public class userDao {
 //    }
     @Transactional
     public User getUser(String username,String password) {
-    	Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
+	    Query query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY);
     	query.setParameter("username",username);
     	
     	try {
@@ -60,14 +62,14 @@ public class userDao {
 
 	@Transactional
 	public boolean userExists(String username) {
-		Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
+		Query query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY);
 		query.setParameter("username",username);
 		return !query.getResultList().isEmpty();
 	}
 
 	@Transactional
 	public User getUserByUsername(String username) {
-	        Query<User> query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username", User.class);
+	        Query<User> query = sessionFactory.getCurrentSession().createQuery(FIND_USER_BY_USERNAME_QUERY, User.class);
 	        query.setParameter("username", username);
 	        
 	        try {

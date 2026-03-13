@@ -40,9 +40,11 @@ jobs:
           java-version: "11"
           cache: maven
 
-      - name: Build tests and coverage
+      - name: Build tests
         run: |
-          mvn -B clean test jacoco:report
+          mvn -B clean test
+          # Coverage disabled:
+          # mvn -B clean test jacoco:report
 
       - name: Sonar scan
         shell: bash
@@ -62,7 +64,8 @@ jobs:
             "-Dsonar.projectKey=${PROJECT_KEY}"
             "-Dsonar.projectName=${PROJECT_NAME}"
             "-Dsonar.java.binaries=target/classes"
-            "-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
+            # Coverage disabled:
+            # "-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml"
           )
 
           if [ "${HOST_URL}" = "https://sonarcloud.io" ]; then
