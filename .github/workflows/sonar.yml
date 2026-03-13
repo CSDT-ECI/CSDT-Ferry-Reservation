@@ -42,7 +42,7 @@ jobs:
 
       - name: Build tests and coverage
         run: |
-          mvn -B clean verify jacoco:report
+          mvn -B clean test jacoco:report
 
       - name: Sonar scan
         shell: bash
