@@ -53,6 +53,10 @@ jobs:
         run: mvn -B clean test
         working-directory: ./JtProject
 
+      - name: OWASP Dependency Check
+        run: mvn org.owasp:dependency-check-maven:check || true
+        working-directory: ./JtProject
+
       - name: Generate JaCoCo coverage report
         run: mvn -B jacoco:report
         working-directory: ./JtProject
