@@ -14,9 +14,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.dao.DataIntegrityViolationException;
-
+import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.*;
 import com.jtspringproject.JtSpringProject.dao.userDao;
 import com.jtspringproject.JtSpringProject.models.User;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
@@ -81,4 +83,30 @@ class UserServiceTest {
         assertEquals("john", result.getUsername());
         verify(userDao).getUser("john", "123");
     }
+    @Test
+void getUserByUsernameDelegatesToDao() {
+    User user = new User();
+    user.setUsername("julian");
+
+    when(userDao.getUserByUsername("julian")).thenReturn(user);
+
+    User result = userService.getUserByUsername("julian");
+
+    assertNotNull(result);
+    assertEquals("julian", result.getUsername());
+    verify(userDao).getUserByUsername("julian");
+}   
+@Test
+void addUserSuccess() {
+    User user = new User();
+    user.setUsername("new-user");
+
+    when(userDao.saveUser(user)).thenReturn(user);
+
+    User result = userService.addUser(user);
+
+    assertNotNull(result);
+    assertEquals("new-user", result.getUsername());
+    verify(userDao).saveUser(user);
+}
 }
