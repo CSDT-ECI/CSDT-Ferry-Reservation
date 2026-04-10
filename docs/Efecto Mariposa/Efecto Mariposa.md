@@ -58,7 +58,7 @@ La especificación entregada a la IA incluyó:
 | **HISTORIA DE USUARIO 1** | Calcular huella de carbono con 3 campos numéricos, validación de campos vacíos y fórmula definida |
 | **HISTORIA DE USUARIO 2** | Botón de modo oscuro que solo agregue la clase CSS `.dark-mode` al `<body>`, sin lógica adicional |
 
-> .[!NOTE].
+> [!NOTE]
 > La especificación actúa como un contrato técnico. La IA deja de tomar decisiones propias y pasa a ejecutar criterios definidos por el ingeniero. Esto reduce el "Token Sprawl" (gasto de tokens asumiendo contexto) y mejora la coherencia del resultado.
 
 **Paso 2 — Control vs Caos**
