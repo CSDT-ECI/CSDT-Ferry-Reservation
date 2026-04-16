@@ -9,6 +9,7 @@
 - Contexto original: [docs/README.md](docs/README.md)
 - Laboratorio 1: [docs/Code Smells and Refactoring Lab.md](docs/Code%20Smells%20and%20Refactoring%20Lab.md)
 - Laboratorio 2: [docs/Clean Code and XP Practices Lab.md](docs/Clean%20Code%20and%20XP%20Practices%20Lab.md)
+- Primera entrega 2026: [docs/CSDT_PrimeraEntrega2026.md](docs/CSDT_PrimeraEntrega2026.md)
 
 ## Repositorios
 - Repositorio original (publico): https://github.com/jaygajera17/E-commerce-project-springBoot
@@ -18,7 +19,8 @@
 | Fecha       | Hito                                                                                              |
 |-------------|---------------------------------------------------------------------------------------------------|
 | 2026-02-10  | Se crea el indice general, se define el Lab 1 y se documenta el primer inventario de code smells. |
-| 2026-02-222 | Se documenta el primer análisis de Clean Code, buenas practicas de programacion y XP practices.   |
+| 2026-02-22  | Se documenta el primer análisis de Clean Code, buenas practicas de programacion y XP practices.   |
+| 2026-03-13  | Se integran SonarCloud, GitHub CodeQL y JaCoCo en CI; además se amplía la suite de pruebas.      |
 
 ## Nota
 Este archivo solo funciona como indice general. Cada laboratorio tiene su propio README.
