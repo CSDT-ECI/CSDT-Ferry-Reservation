@@ -33,7 +33,7 @@
 
 ## Requisitos para compilar y ejecutar
 - Java 11+ (el proyecto declara 11 en [JtProject/pom.xml](../JtProject/pom.xml)).
-- Maven (o Maven Wrapper si se configura `.mvn`).
+- Maven.
 - MySQL 8.x en ejecucion.
 - Configurar credenciales en [JtProject/src/main/resources/application.properties](../JtProject/src/main/resources/application.properties).
 
