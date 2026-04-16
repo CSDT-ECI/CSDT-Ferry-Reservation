@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
  
 @Configuration
@@ -61,6 +63,20 @@ public class HibernateConfiguration {
         sessionFactory.setHibernateProperties(hibernateProperties);
  
         return sessionFactory;
+    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource());
+        emf.setPackagesToScan(PACKAGES_TO_SCAN);
+        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        Properties jpaProperties = new Properties();
+        jpaProperties.put("hibernate.dialect", DIALECT);
+        jpaProperties.put("hibernate.show_sql", SHOW_SQL);
+        jpaProperties.put("hibernate.hbm2ddl.auto", HBM2DDL_AUTO);
+        emf.setJpaProperties(jpaProperties);
+        return emf;
     }
  
     @Bean

@@ -2,9 +2,6 @@ package com.jtspringproject.JtSpringProject.dao;
 
 import java.util.List;
 
-import javax.persistence.NoResultException;
-import javax.sound.midi.Soundbank;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -70,7 +67,7 @@ public class userDao {
 
 	@Transactional
 	public User getUserByUsername(String username) {
-	        Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where username = :username", User.class);
+	        Query<User> query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username", User.class);
 	        query.setParameter("username", username);
 	        
 	        try {
