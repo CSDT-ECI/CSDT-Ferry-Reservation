@@ -1,42 +1,75 @@
-*#
+# ────────────────────────────
+# IDEs
+# ────────────────────────────
 *.iml
 *.ipr
 *.iws
-*.jar
-*.sw?
-*~
-.#*
-.*.md.html
-.DS_Store
-.attach_pid*
+.idea/
+.vscode/
 .classpath
-.factorypath
-.gradle
-.idea
-.metadata
 .project
-.recommenders
-.settings
+.settings/
+.factorypath
 .springBeans
-.vscode
-/code
-MANIFEST.MF
-_site/
-activemq-data
-bin
-build
-!/**/src/**/bin
-!/**/src/**/build
-build.log
+.sts4-cache/
+.metadata/
+.recommenders/
+
+# ────────────────────────────
+# Maven
+# ────────────────────────────
+target/
 dependency-reduced-pom.xml
-dump.rdb
-interpolated*.xml
-lib/
-manifest.yml
-out
-overridedb.*
-target
 .flattened-pom.xml
-secrets.yml
+
+# ────────────────────────────
+# Gradle
+# ────────────────────────────
+.gradle/
+build/
+!**/src/**/build/
 .gradletasknamecache
-.sts4-cache
+
+# ────────────────────────────
+# Sistema operativo
+# ────────────────────────────
+.DS_Store
+*~
+*.sw?
+Thumbs.db
+
+# ────────────────────────────
+# Secretos y configuracion local
+# ────────────────────────────
+secrets.yml
+*.env
+application-local.properties
+
+# ────────────────────────────
+# Logs y archivos temporales
+# ────────────────────────────
+*.log
+build.log
+dump.rdb
+activemq-data/
+out/
+overridedb.*
+manifest.yml
+interpolated*.xml
+MANIFEST.MF
+lib/
+_site/
+
+# ────────────────────────────
+# Java artefactos compilados
+# ────────────────────────────
+*.class
+*.jar
+!**/src/**/bin/
+bin/
+.attach_pid*
+
+# ────────────────────────────
+# Archivos generados por Markdown
+# ────────────────────────────
+.*.md.html

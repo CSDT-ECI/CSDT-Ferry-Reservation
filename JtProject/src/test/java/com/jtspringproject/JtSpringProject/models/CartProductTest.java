@@ -1,13 +1,13 @@
 package com.jtspringproject.JtSpringProject.models;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CartProductTest {
 
     @Test
     void testConstructorAndGetters() {
-        // Mocking simple Cart and Product objects with IDs
         Cart cart = new Cart();
         cart.setId(1);
 
