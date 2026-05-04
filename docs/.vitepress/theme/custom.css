@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --vp-c-brand-1: #0a7f8e;
+  --vp-c-brand-2: #06606c;
+  --vp-c-brand-3: #0e9aab;
+  --vp-c-brand-soft: rgba(10, 127, 142, 0.15);
+  --vp-font-family-base: 'Sora', 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'Space Mono', 'Consolas', monospace;
+}
+
+.VPHome {
+  position: relative;
+}
+
+.VPHome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(14, 154, 171, 0.18), transparent 42%),
+    radial-gradient(circle at 85% 8%, rgba(201, 165, 86, 0.2), transparent 34%),
+    radial-gradient(circle at 78% 76%, rgba(10, 127, 142, 0.16), transparent 36%);
+  pointer-events: none;
+}
+
+.VPHero .name {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.VPFeature {
+  border: 1px solid rgba(10, 127, 142, 0.2);
+  backdrop-filter: blur(5px);
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-2);
+}

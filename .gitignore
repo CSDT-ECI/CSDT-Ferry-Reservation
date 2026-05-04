@@ -73,3 +73,10 @@ bin/
 # Archivos generados por Markdown
 # ────────────────────────────
 .*.md.html
+
+# ────────────────────────────
+# Node y VitePress
+# ────────────────────────────
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/

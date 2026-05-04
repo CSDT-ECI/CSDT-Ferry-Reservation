@@ -56,17 +56,18 @@ The views are located in `src/main/webapp/views`, but for some reason, Spring Bo
 
 
 When you run the project, the views should be found by Spring Boot and you should see a login page in http://localhost:8080/ (if not logged in previously)!
-![configurations](image.png)
+> Nota: la captura de configuracion local no esta versionada en el repositorio.
 
 # Workflow
 - ![image](https://github.com/jaygajera17/E-commerce-project-springBoot/assets/81226571/69951cb7-65e2-4225-8681-2542859aaec6)
 ### Controller
 - control the endpoint and also send data to view( we use ModelAndView method)
-- ``` @GetMapping("login")
-	public String adminlogin() {
-		
-		return "adminlogin";
-	}```
+- ```java
+  @GetMapping("login")
+  public String adminlogin() {
+      return "adminlogin";
+  }
+  ```
 - whenever /login url is hit , src->main->webapp-> adminlogin.jsp file execute
 ### Models
 - represent data as entity and relationship among them.
