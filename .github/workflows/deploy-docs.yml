@@ -2,7 +2,7 @@ name: Deploy Wiki (VitePress)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "lab8" ]
   pull_request:
     branches: [ "main" ]
     types: [opened, synchronize, reopened]
