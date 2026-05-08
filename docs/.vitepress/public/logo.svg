@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ferry logo">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e9aab"/>
+      <stop offset="100%" stop-color="#06606c"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#f6fbfc"/>
+  <path d="M14 40h36l-5 8H19l-5-8z" fill="url(#sea)"/>
+  <path d="M22 22h20v14H22z" fill="#c9a556"/>
+  <path d="M26 26h4v4h-4zm8 0h4v4h-4z" fill="#f6fbfc"/>
+  <path d="M10 52c4-3 8-3 12 0 4-3 8-3 12 0 4-3 8-3 12 0 4-3 8-3 12 0" stroke="#0a7f8e" stroke-width="2" fill="none"/>
+</svg>

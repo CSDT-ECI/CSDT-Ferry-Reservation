@@ -31,7 +31,7 @@
 ---
 
 ## Contexto y alcance del analisis
-El analisis se realiza sobre el repositorio del Sistema de Reserva de Ferry (fork de un proyecto Spring Boot), considerando las actividades ya ejecutadas en laboratorios previos:
+El analisis se realiza sobre el repositorio de un fork de e-commerce en Spring Boot, considerando las actividades ya ejecutadas en laboratorios previos:
 - Identificacion de code smells y deuda tecnica.
 - Primer ciclo de refactorizacion.
 - Incorporacion, por parte del grupo CSDT, de pruebas unitarias en servicios y controladores.

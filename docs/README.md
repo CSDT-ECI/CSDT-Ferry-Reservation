@@ -2,16 +2,18 @@
 
 ## Documentacion CSDT
 
+Este repositorio documenta un fork de un proyecto de e-commerce en Spring Boot. El código real permite gestionar usuarios, categorías, productos, carrito y panel de administración.
+
 - Analisis de olores arquitectonicos (Designite): [ArchitecturalSmells.md](ArchitecturalSmells.md)
 
 ## New Version ( what's new)
-- Hibernate configuration added( database and tables automatically create when run the project)
+- Hibernate configuration added (database and tables automatically create when run the project)
 - Service classes provide reusable services throughout project
-- dao classes interact with database 
-- bug fixed ( product image, security , etc..)
-- support in both eclipse & intellij ide
-- overall redesign entire code that help reusability. 
-- disclaimer: currently working on this branch so there may be some bug related to endpoint, and working on cart logic.
+- DAO classes interact with database
+- Bug fixed (product image, security, etc.)
+- Support in both Eclipse & IntelliJ IDE
+- Overall redesign of the code to improve reusability
+- Disclaimer: currently working on this branch, so there may be some bugs related to endpoints and cart logic
   
 ## Quickstart
 
@@ -22,7 +24,7 @@
 4. Configure the database connection in `application.properties` file (check the [Database](#database) section below for more info)
 5. Run the project (by running the `main` method in `JtSpringProjectApplication.java`)
 6. Open http://localhost:8080/ in your browser!
-   * If you ran the [`basedata.sql`](https://github.com/jaygajera17/E-commerce-project-springBoot/blob/master2/JtProject/basedata.sql)script on the database, you can log in with the following credentials as admin; otherwise you'll have to manually create an admin user in the database:
+  * If you ran the [`basedata.sql`](https://github.com/jaygajera17/E-commerce-project-springBoot/blob/master2/JtProject/basedata.sql) script on the database, you can log in with the following credentials as admin; otherwise you'll have to manually create an admin user in the database:
      * Username: `admin`
      * Password: `123`
    * Log in as a normal user:
@@ -47,7 +49,7 @@ Having done that, you must create some base data in the database. You can do tha
 
 ### Web Directories
 
-The views are located in `src/main/webapp/views`, but for some reason, Spring Boot doesn't recognize that directory. To remedy this, you must change the working directory of the project in your IDE. If you're using IntelliJ IDEA, follow these steps:
+The views are located in `src/main/webapp/views`, but for some reason, Spring Boot doesn't recognize that directory in every setup. To remedy this, you must change the working directory of the project in your IDE. If you're using IntelliJ IDEA, follow these steps:
 
 1. Click on the "Edit Configurations..." button in the top right corner of the IDE
 2. Click on the `JtSpringProjectApplication` configuration
@@ -56,17 +58,18 @@ The views are located in `src/main/webapp/views`, but for some reason, Spring Bo
 
 
 When you run the project, the views should be found by Spring Boot and you should see a login page in http://localhost:8080/ (if not logged in previously)!
-![configurations](image.png)
+> Nota: la captura de configuracion local no esta versionada en el repositorio.
 
 # Workflow
 - ![image](https://github.com/jaygajera17/E-commerce-project-springBoot/assets/81226571/69951cb7-65e2-4225-8681-2542859aaec6)
 ### Controller
 - control the endpoint and also send data to view( we use ModelAndView method)
-- ``` @GetMapping("login")
-	public String adminlogin() {
-		
-		return "adminlogin";
-	}```
+- ```java
+  @GetMapping("login")
+  public String adminlogin() {
+      return "adminlogin";
+  }
+  ```
 - whenever /login url is hit , src->main->webapp-> adminlogin.jsp file execute
 ### Models
 - represent data as entity and relationship among them.

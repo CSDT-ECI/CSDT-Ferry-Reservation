@@ -1,10 +1,10 @@
 # CSDT — Primera Entrega 2026
-### Sistema de Reserva de Ferry · Análisis de Deuda Técnica, Pruebas y Calidad de Software
+### Proyecto base Spring Boot de e-commerce · Análisis de Deuda Técnica, Pruebas y Calidad de Software
 
 > *"El código heredado sin pruebas no es simplemente código viejo — es código que no puede refactorizarse con confianza."*  
 > — Michael Feathers, *Working Effectively with Legacy Code*
 
-**Proyecto:** Sistema de Reserva de Ferry (fork de E-commerce con Spring Boot)  
+**Proyecto:** Fork de e-commerce en Spring Boot usado como base académica del curso  
 **Tecnología:** Java 11 · Spring Boot · Hibernate/JPA · MySQL · JSP  
 **Repositorio CSDT:** https://github.com/esteban0903/CSDT-Ferry-Reservation  
 
@@ -33,7 +33,7 @@
 
 ## 1. Contexto del proyecto y punto de partida
 
-El proyecto es un fork de un sistema de e-commerce en Spring Boot, adaptado como sistema de reserva de ferry. El código heredado presentaba múltiples problemas estructurales que sirvieron como base de análisis para el curso:
+El proyecto es un fork de un sistema de e-commerce en Spring Boot. El código fuente implementa usuarios, productos, categorías, carrito y administración. El código heredado presentaba múltiples problemas estructurales que sirvieron como base de análisis para el curso:
 
 | Problema identificado | Impacto |
 |---|---|
@@ -348,8 +348,8 @@ Durante esta entrega se integró **SonarCloud** con GitHub Actions mediante el w
 
 La configuración implementada usa Java 11 y ejecuta el análisis desde `JtProject/`, respetando la estructura real del repositorio. Además, se definieron explícitamente los identificadores del proyecto en SonarCloud:
 
-- `sonar.projectName=CSDT-Ferry-Reservation`
-- `sonar.projectKey=CSDT-ECI_CSDT-Ferry-Reservation`
+- `sonar.projectName=CSDT-Ecommerce-SpringBoot`
+- `sonar.projectKey=CSDT-ECI_CSDT-Ecommerce-SpringBoot`
 - `sonar.organization=csdt-eci`
 
 También se incorporó validación de `SONAR_TOKEN` como secreto obligatorio para evitar ejecuciones incompletas del pipeline.
@@ -403,4 +403,4 @@ El análisis del proyecto permitió aplicar de forma práctica los conceptos de 
 ---
 
 *Bitácora consolidada por el equipo CSDT — 2026.*  
-*Proyecto: Sistema de Reserva de Ferry · Curso: Calidad y Deuda Técnica en Software*
+*Proyecto: Fork de e-commerce Spring Boot · Curso: Calidad y Deuda Técnica en Software*
