@@ -1,4 +1,4 @@
-# Architectural Smells - Sistema de Reserva de Ferry
+# Architectural Smells - Proyecto base Spring Boot de e-commerce
 
 ## Introducción
 

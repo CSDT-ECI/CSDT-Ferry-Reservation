@@ -21,7 +21,7 @@
 
 ## Descripcion general del proyecto
 
-El proyecto seleccionado es un sistema de reserva de ferry desarrollado en Java utilizando el framework Spring Boot. El sistema permite a los usuarios registrarse, iniciar sesión, buscar rutas de ferry, realizar reservas y gestionar sus reservas. El proyecto utiliza una base de datos MySQL para almacenar la información de los usuarios, rutas y reservas, y emplea JSP para la capa de presentación.
+El proyecto seleccionado es un fork de un sistema de e-commerce desarrollado en Java utilizando el framework Spring Boot. El código real permite gestionar usuarios, categorías, productos, carrito y panel de administración. El proyecto utiliza una base de datos MySQL para almacenar la información y emplea JSP para la capa de presentación.
 
 El proyecto sigue una arquitectura en capas:
 

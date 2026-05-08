@@ -1,4 +1,4 @@
-# Sistema de Reserva de Ferry
+# Proyecto base Spring Boot de e-commerce
 
 ## Equipo
 - Esteban Aguilera Contreras

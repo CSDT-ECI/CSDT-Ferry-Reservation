@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Sistema de Reserva de Ferry
+  name: Proyecto base Spring Boot de e-commerce
   text: Wiki CSDT 2026
   tagline: Documentacion del semestre consolidada en GitHub Pages con VitePress.
   actions:
@@ -15,7 +15,7 @@ hero:
 
 features:
   - title: Contexto y punto de partida
-    details: Proyecto base, arquitectura original, quickstart y endpoints del sistema.
+    details: Proyecto base, arquitectura original, quickstart y endpoints del sistema e-commerce adaptado.
     link: /README
   - title: Laboratorios de calidad
     details: Code smells, clean code, XP, DevEx/SPACE, deuda de procesos y reflexion de IA.

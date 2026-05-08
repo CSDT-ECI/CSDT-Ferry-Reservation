@@ -19,7 +19,7 @@
 - Fomentar la creatividad en la documentacion del progreso del proyecto y en la utilizacion eficaz de la reduccion de la cuenta.
 
 ## Proyecto seleccionado
-- Nombre del proyecto: Sistema de Reserva de Ferry
+- Nombre del proyecto: Fork de e-commerce Spring Boot
 - Tecnologia: Java + Spring Boot + MySQL + JSP
 - Repositorio original (publico): https://github.com/jaygajera17/E-commerce-project-springBoot
 - Fork en la organizacion CSDT: https://github.com/esteban0903/CSDT-Ferry-Reservation

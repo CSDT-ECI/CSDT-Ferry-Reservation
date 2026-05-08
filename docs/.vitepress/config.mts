@@ -5,14 +5,14 @@ const base = process.env.GITHUB_ACTIONS && repoName ? `/${repoName}/` : '/'
 
 export default defineConfig({
   lang: 'es-CO',
-  title: 'Sistema de Reserva de Ferry',
-  description: 'Wiki del proyecto CSDT 2026: laboratorios, analisis tecnico y evidencia de calidad.',
+  title: 'Proyecto base Spring Boot de e-commerce',
+  description: 'Wiki del proyecto CSDT 2026: fork de e-commerce, laboratorios, analisis tecnico y evidencia de calidad.',
   base,
   cleanUrls: true,
   ignoreDeadLinks: true,
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: 'CSDT Ferry Wiki',
+    siteTitle: 'CSDT Wiki',
     search: {
       provider: 'local'
     },
